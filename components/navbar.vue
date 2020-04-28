@@ -1,86 +1,287 @@
 <template>
-  <div id="App">
-    <BootstrapSidebar
-      :initial-show="initialShow"
-      :links="links"
-      :header="header"
-      :fa="true"
-      @sidebarChanged="onSidebarChanged"
-    >
-      <template v-slot:navbar>
-        <b-navbar
-          id="mainNavbar"
-          toggleable="lg"
-          type="light"
-          variant="light"
-          fixed="top"
-        >
-          <b-navbar-nav>
-            <b-nav-item>
-              Navbar
-            </b-nav-item>
-          </b-navbar-nav>
-        </b-navbar>
-      </template>
- 
-      <template v-slot:content>
-        <b-container style="margin-top: 56px">
-          <router-view />
-        </b-container>
-      </template>
-    </BootstrapSidebar>
-  </div>
-</template>
+  <section>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div>
+      <b-navbar toggleable="lg" type="light" style="background: #FDF0E0;box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.12);">
+        <b-navbar-brand href="#" v-b-toggle.sidebar-1 class="ml-3">
+          <img src="/img/logo.png" alt="" style="width:35%">
+        </b-navbar-brand>
 
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-collapse" is-nav>
+
+
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
+
+            <b-nav-item class="mr-3" @click="gotoHome()">
+              <i class="fa fa-home mr-2"></i>Home
+            </b-nav-item>
+
+
+            <b-nav-item-dropdown right class="mr-3">
+              <!-- Using 'button-content' slot -->
+              <template v-slot:button-content>
+                <i class="fa fa-user mr-2"></i>Husna
+              </template>
+              <b-dropdown-item href="/Profile">Profile</b-dropdown-item>
+              <b-dropdown-item href="/">Sign Out</b-dropdown-item>
+            </b-nav-item-dropdown>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+      <b-sidebar id="sidebar-1" shadow style="background:#9C27B0;overflow-x:hidden">
+        <div class="row m-1">
+          <div class="col-md-12">
+            <div class="row" style="">
+              <div class="col-md-12 text-center ">
+                <h2>Rp 100.000,-</h2>
+              </div>
+            </div>
+            <div class="card " style="max-width: 100%;border-radius:20px">
+              <div class="card-body bg-danger text-white " style="border-radius:20px">
+                <div class="row">
+                  <div class="col-md-4">
+                    <h3 class="text-center">0</h3>
+                    <small>
+                      <p>Perisai</p>
+                    </small>
+                  </div>
+                  <div class="col-md-3">
+                    <h3 class="text-center">0</h3>
+                    <small>
+                      <p>Tera</p>
+                    </small>
+                  </div>
+                  <div class="col-md-5">
+                    <h3 class="text-center">0</h3>
+                    <small>
+                      <p>Dig Locker</p>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-2 mb-2" >
+              <div class="col-md-12 text-center ">
+                <button type="button" class="btn submit btn-block "> Buy</button></div>
+            </div>
+          </div>
+        </div>
+
+        <b-list-group class="">
+
+
+
+          <!-- <nuxt-link to="/TandaTanganDigital"> -->
+          <b-list-group-item button @click="Perisai()"><i class="fa fa-bookmark mr-3"></i>Perisai
+          </b-list-group-item>
+          <b-list-group-item button @click="PeruriTera()"><i class="fa  fa-calendar-check-o mr-3"></i>Peruri Tera
+          </b-list-group-item>
+          <b-list-group-item button @click="Riwayat()"><i class="fa  fa-history mr-3"></i>Riwayat Pembubuhan
+          </b-list-group-item>
+          <b-list-group-item button @click="Digital()"><i class="fa  fa-list mr-3"></i>Digital Locker
+          </b-list-group-item>
+
+        </b-list-group>
+      </b-sidebar>
+    </div>
+  </section>
+</template>
 <script>
-import Vue from 'vue'
-import BootstrapSidebar from 'vue-bootstrap-sidebar'
- 
-export default Vue.extend({
-  name: 'App',
-  components: {
-    BootstrapSidebar
-  },
-  data () {
-    return {
-      initialShow: true,
-      header: '<h3>Sidebar</h3>',
-      links: [
-        { name: 'Home', href: { name: 'home' }, faIcon: ['fas', 'home'] },
-        {
-          name: 'Dropdown',
-          faIcon: ['fas', 'tint'],
-          children: [
-            {
-              name: 'Child Item 1',
-              href: {
-                name: 'child-item-1'
-              },
-              faIcon: ['fas', 'child']
-            },
-            {
-              name: 'Child Item 2',
-              href: {
-                name: 'child-item-2'
-              },
-              faIcon: ['fas', 'child']
-            }
-          ]
-        },
-        { name: 'About', href: { name: 'about' }, faIcon: 'users' },
-        { name: 'Contact', href: { name: 'contact' }, faIcon: 'phone' }
-      ]
-    }
-  },
-  methods: {
-    onSidebarChanged () {
+  export default {
+    data() {
+      return {
+        menuitem: false,
+        menuitem2: false,
+        kliksubmenu2: false,
+        kliksubmenu: false
+
+      }
+    },
+    methods: {
+      gotoHome() {
+        this.$router.push({
+          path: `/home`,
+        })
+      },
+      Perisai() {
+        this.$router.push({
+          path: `/Perisai/UpgradeAkun`,
+        })
+      },
+      PeruriTera() {
+        this.$router.push({
+          path: `/StempelDokumen`,
+        })
+      },
+     
+      Riwayat() {
+        this.$router.push({
+          path: '/RiwayatPembubuhan'
+        })
+      },
+      Digital() {
+        this.$router.push({
+          path: '/DigitalLocker'
+        })
+      },
+
+
+
+
     }
   }
-})
-</script> 
- 
-<style lang="scss">
-@import 'node_modules/bootstrap/scss/bootstrap';
-@import 'node_modules/bootstrap-vue/src/index.scss';
-@import 'node_modules/vue-bootstrap-sidebar/src/scss/default-theme';
-</style> 
+
+</script>
+<style>
+   .b-sidebar>.b-sidebar-body {
+    background:  #FDF0E0;
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .b-sidebar>.b-sidebar-header {
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
+
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    align-items: center;
+    background:  #FDF0E0;
+    color: #999999;
+  }
+
+  .list-group-item:first-child {
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+  }
+
+  .list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color:  #FDF0E0;;
+    color: #999999;
+    border: none;
+
+  }
+
+  .list-group-item.inner {
+    border: transparent;
+    width: 100%;
+    color: #999999;
+    background:  #FDF0E0;;
+    border-left-color: #999999 solid;
+  }
+
+   .card {
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+
+  .card-header {
+    border-radius: 10px;
+  }
+
+  nav#sidebar {
+    background: #FDF0E0;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .default-theme .list-group-item .sidebar-menu-item {
+    /* background-color: #fff; */
+    color: #495057;
+    border: none;
+    background: #FDF0E0;
+  }
+
+  .default-theme .sidebar-header {
+    /* background-color: #fff; */
+    color: #495057;
+    background: #FDF0E0;
+  }
+
+  .submit {
+    background: #FC7859;
+    border-radius: 30px;
+    color: #FFF;
+    height: 41px;
+  }
+
+  .submit:hover {
+    color: #FFF;
+    transform: translateY(-5px);
+  }
+
+  .danger {
+    background: #DA3A21;
+  }
+
+  .primary {
+    background: #339CC9;
+  }
+
+  .warning {
+    background: #ffb129;
+  }
+
+  .btn {
+    border-radius: 30px;
+  }
+
+
+  .b-dropdown-item {
+    background: #FC7859;
+    color: white;
+  }
+
+  .b-dropdown-item:hover {
+    background: #FFFFFF;
+    color: grey;
+  }
+
+  .hello {
+    width: 100%;
+    height: 300px;
+  }
+
+  .scrolling-wrapper {
+    overflow-x: auto;
+    padding-top: 30px;
+    padding-bottom: 70px;
+  }
+
+  .card-block {
+    height: 100%;
+    background-color: #fff;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 5px 5px hsla(240%, 43%, 40%, 0.35);
+    transition: all 0.2s ease-in-out !important;
+
+  }
+
+  .card-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 7px hsla(240%, 43%, 40%, 0.5);
+    cursor: pointer;
+  }
+
+ .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 2px hsla(240%, 43%, 40%, 0.5);
+     cursor: pointer;
+  }
+  
+
+  
+
+</style>

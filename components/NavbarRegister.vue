@@ -53,46 +53,5 @@
 
 </script>
 <style>
-  .b-sidebar>.b-sidebar-body {
-    background:  #FDF0E0;
-    flex-grow: 1;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .b-sidebar>.b-sidebar-header {
-    font-size: 1.5rem;
-    padding: 2.5rem 1rem;
-
-    display: flex;
-    flex-direction: row;
-    flex-grow: 0;
-    align-items: center;
-    background:  #FDF0E0;
-    color: #999999;
-  }
-
-  .list-group-item:first-child {
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 0rem;
-  }
-
-  .list-group-item {
-    position: relative;
-    display: block;
-    padding: 0.75rem 1.25rem;
-    background-color:  #FDF0E0;;
-    color: #999999;
-
-  }
-
-  .list-group-item.inner {
-    border: transparent;
-    width: 100%;
-    color: #999999;
-    background:  #FDF0E0;;
-    border-left-color: #999999 solid;
-  }
-  
+ 
 </style>

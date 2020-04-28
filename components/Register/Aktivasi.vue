@@ -14,7 +14,7 @@
     </div>
     <div class="row mt-3 mb-3">
       <div class="col-md-12 text-center ">
-       <button type="button" class="btn btn-primary submit mr-3">Resend Activation</button>
+       <button type="button" class="btn btn-primary  mr-3">Resend Activation</button>
       </div>     
     </div>
     
