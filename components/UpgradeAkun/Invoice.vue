@@ -82,7 +82,7 @@
           <div class="col-md-12 text-right">
             <button @click="buttonpembayaran()" class="btn btn-primary">Submit</button>
             <small>
-              <p><b>klik submit before klik button next</b></p>
+              <!-- <p><b>klik submit before klik button next</b></p> -->
             </small>
           </div>
         </div>

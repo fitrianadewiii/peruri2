@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="col-md-3 mt-3">
-          <div class="card  mb-3" style="max-width: 100%;">
+          <div class="card  mb-3"  style="max-width: 100%;">
             <div class="card-header text-white danger text-center">Failed</div>
             <div class="card-body text-center" style="height:100px">
               <!-- <h5 class="card-title">Primary card title</h5> -->

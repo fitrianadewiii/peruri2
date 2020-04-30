@@ -63,9 +63,9 @@
                 </div>
               </div>
             </div>
-            <div class="row mt-2 mb-2" >
+            <div class="row mt-2 mb-2">
               <div class="col-md-12 text-center ">
-                <button type="button" class="btn submit btn-block "> Buy</button></div>
+                <button type="button" @click="Buy()" class="btn submit btn-block "> Buy</button></div>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@
           path: `/StempelDokumen`,
         })
       },
-     
+
       Riwayat() {
         this.$router.push({
           path: '/RiwayatPembubuhan'
@@ -125,6 +125,11 @@
       Digital() {
         this.$router.push({
           path: '/DigitalLocker'
+        })
+      },
+      Buy() {
+        this.$router.push({
+          path: '/Buy'
         })
       },
 
@@ -136,8 +141,8 @@
 
 </script>
 <style>
-   .b-sidebar>.b-sidebar-body {
-    background:  #FDF0E0;
+  .b-sidebar>.b-sidebar-body {
+    background: #FDF0E0;
     flex-grow: 1;
     height: 100%;
     overflow-y: auto;
@@ -152,7 +157,7 @@
     flex-direction: row;
     flex-grow: 0;
     align-items: center;
-    background:  #FDF0E0;
+    background: #FDF0E0;
     color: #999999;
   }
 
@@ -165,7 +170,8 @@
     position: relative;
     display: block;
     padding: 0.75rem 1.25rem;
-    background-color:  #FDF0E0;;
+    background-color: #FDF0E0;
+    ;
     color: #999999;
     border: none;
 
@@ -175,20 +181,23 @@
     border: transparent;
     width: 100%;
     color: #999999;
-    background:  #FDF0E0;;
+    background: #FDF0E0;
+    ;
     border-left-color: #999999 solid;
   }
 
-   .card {
+  .card {
 
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
   }
 
-  .card-header {
+
+
+  /* .card-header {
     border-radius: 10px;
-  }
+  } */
 
   nav#sidebar {
     background: #FDF0E0;
@@ -271,17 +280,103 @@
 
   .card-block:hover {
     transform: translateY(-5px);
-    box-shadow: 0 7px 7px hsla(240%, 43%, 40%, 0.5);
+    box-shadow: 0 0 6px #4183D7;
+    cursor: pointer;
+
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 2px hsla(240%, 43%, 40%, 0.5);
     cursor: pointer;
   }
 
- .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 2px 2px hsla(240%, 43%, 40%, 0.5);
-     cursor: pointer;
-  }
-  
+  input[type="checkbox"] {
+    position: relative;
+    /* top: .5em;
+  left:.7em; */
 
-  
+  }
+
+  @media (pointer: coarse) {
+    input[type="checkbox"] {
+      height: 4em;
+      width: 4em;
+    }
+  }
+
+  /* Use z-index to make it accessible to keyboard navigation */
+  @media (hover: hover) {
+    input[type="checkbox"] {
+      z-index: -1
+    }
+
+    .card:hover input[type="checkbox"],
+    input[type="checkbox"]:focus,
+    input[type="checkbox"]:checked {
+      z-index: auto
+    }
+
+  }
+
+  .files input {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 120px 0px 85px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
+  }
+
+  .files input:focus {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    border: 1px solid #92b0b3;
+  }
+
+  .files {
+    position: relative
+  }
+
+  .files:after {
+    pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .color input {
+    background-color: #f1f1f1;
+  }
+
+  .files:before {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    content: " or drag it here. ";
+    display: block;
+    margin: 0 auto;
+    color: #2ea591;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+  }
 
 </style>

@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="container ">
       <div class="row justify-content-center align-items-center mt-5" style="">
-        <div class="col-md-12 mt-5 ">
+        <div class="col-md-12 ">
           <b-breadcrumb :items="items"></b-breadcrumb>
           <div class="card " style="height:100%;">
             <div class="row" style="height:100%">

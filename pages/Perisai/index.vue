@@ -1,8 +1,8 @@
 <template>
   <section>
     <div class="container">
-        <div class="row justify-content-center align-items-center mt-5">
-            <div class="col-md-12 mt-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-12 mt-3">
                 <b-breadcrumb :items="items"></b-breadcrumb>
             </div>
         </div>
