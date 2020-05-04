@@ -6,19 +6,34 @@
         <div class="col-md-12 ">
           <b-breadcrumb :items="items"></b-breadcrumb>
           <div class="card " style="height:100%;">
-            <div class="row" style="height:100%">
-              <div class="col-md-12 justify-content-center align-items-center">
-                <img class="image bounce-2 " src="/img/Empty.png" style="display: block; margin: auto;">
+            <div class="" v-if="notempty">
+              <div class="row" style="height:100%">
+                <div class="col-md-12 justify-content-center align-items-center p-5">
+                  <img class="image bounce-2" src="/img/file.png" style=" width :150px;display: block; margin: auto;">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 justify-content-center align-items-center text-center">
+                  <p><b>Selected file: {{ file2 ? file2.name : '' }}</b></p>
+                </div>
+              </div>
+            </div>
+            <div class="" v-if="empty">
+              <div class="row" style="height:100%">
+                <div class="col-md-12 justify-content-center align-items-center">
+                  <img class="image bounce-2 " src="/img/Empty.png" style="display: block; margin: auto;">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 justify-content-center align-items-center text-center">
+                  <p><b>Your Locker is Empty !</b></p>
+                </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12 justify-content-center align-items-center text-center">
-                <p><b>Your Locker is Empty !</b></p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 justify-content-center align-items-center text-center">
-                <p>Drag or <button type="button" class="btn btn-info"> Browse <input type="file" name="file" /></button> Your Document Here </p>
+                <p>Drag or <button @click="browse" type="button" class="btn btn-info"> Browse  <b-form-file v-model="file2" class="mt-3" plain></b-form-file></button> Your Document Here </p>
+                
               </div>
             </div>
           </div>
@@ -36,10 +51,14 @@
     },
     data() {
       return {
+        empty:true,
+        notempty:false,
+        file2: null,
         items: [{
             text: 'Digital Locker',
             href: '#'
           },
+           
           //   {
           //     text: 'HomePage',
           //     href: '#'
@@ -47,7 +66,13 @@
 
         ]
       }
-    }
+    },
+    methods: {
+       browse() {
+        this.empty=false;
+        this.notempty=true;
+      },
+    },
 
   }
 

@@ -76,7 +76,7 @@
         kyc: true,
         signature: false,
         items: [{
-          text: 'Peruri Tera',
+          text: 'Perisai',
           href: '#'
         }],
         // steps: [{

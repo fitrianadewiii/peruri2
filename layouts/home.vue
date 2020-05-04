@@ -1,10 +1,15 @@
 <template >
-  <section class="mb-5"   >
+  <section class="mb-5" style=""   >
     <Navbar />
     <nuxt class="p-3"   />
   </section>
 </template>
 <script>
+import Vue from 'vue'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+
+Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
 import Navbar from '@@/components/Navbar'
 export default {
   components: {

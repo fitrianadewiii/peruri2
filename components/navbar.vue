@@ -33,6 +33,11 @@
       </b-navbar>
       <b-sidebar id="sidebar-1" shadow style="background:#9C27B0;overflow-x:hidden">
         <div class="row m-1">
+          <div class="col-12 text-center">
+            <img src="/img/logo.png" style="width:40%" alt="">
+          </div>
+        </div>
+        <div class="row m-1 mt-3">
           <div class="col-md-12">
             <div class="row" style="">
               <div class="col-md-12 text-center ">
@@ -79,12 +84,35 @@
           </b-list-group-item>
           <b-list-group-item button @click="PeruriTera()"><i class="fa  fa-calendar-check-o mr-3"></i>Peruri Tera
           </b-list-group-item>
-          <b-list-group-item button @click="Riwayat()"><i class="fa  fa-history mr-3"></i>Riwayat Pembubuhan
-          </b-list-group-item>
+         
           <b-list-group-item button @click="Digital()"><i class="fa  fa-list mr-3"></i>Digital Locker
+          </b-list-group-item>
+           <b-list-group-item button @click="Riwayat()"><i class="fa  fa-history mr-3"></i>History
           </b-list-group-item>
 
         </b-list-group>
+        <div class="row mt-3 m-1">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12">
+               <p><b>Last Login</b></p>
+               <hr>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+               <p style="font-size:10px">On > 05/05/2020 04:35 AM
+                 <br>
+                 IP Adress > 109.123.123.123
+                 <br>
+                 Browser > Mozila 4.5 
+                 <br>
+                 
+               </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </b-sidebar>
     </div>
   </section>
@@ -113,13 +141,13 @@
       },
       PeruriTera() {
         this.$router.push({
-          path: `/StempelDokumen`,
+          path: `/PeruriTera`,
         })
       },
 
       Riwayat() {
         this.$router.push({
-          path: '/RiwayatPembubuhan'
+          path: '/History'
         })
       },
       Digital() {
@@ -151,7 +179,7 @@
 
   .b-sidebar>.b-sidebar-header {
     font-size: 1.5rem;
-    padding: 1rem 1rem;
+    padding: 0.4rem 0.4rem;
 
     display: flex;
     flex-direction: row;
@@ -286,7 +314,7 @@
   }
 
   .card:hover {
-    transform: translateY(-3px);
+    /* transform: translateY(-3px); */
     box-shadow: 0 2px 2px hsla(240%, 43%, 40%, 0.5);
     cursor: pointer;
   }

@@ -67,9 +67,10 @@
         </div>
         <div class="row mt-2">
           <div class="col-md-12 text-right">
+            <hr>
             <b-button type="button" v-b-modal.modal-1 class="btn btn-info m-1" variant="">Submit
             </b-button>
-            <small><p><b>Klik Submit before Next</b></p></small>
+            <!-- <small><p><b>Klik Submit before Next</b></p></small> -->
           </div>
         </div>
       </div>

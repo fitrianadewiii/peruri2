@@ -39,10 +39,10 @@
                 </div>
                 <div class="col-md-6 col-sm-12 ">
                   <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <small>
                       <p class="form-check-label" for="exampleCheck1"><b>remember me</b></p>
-                    </small>
+                    </small> -->
                   </div>
                 </div>
               </div>
