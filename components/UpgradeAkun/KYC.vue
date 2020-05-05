@@ -46,7 +46,7 @@ import { WebCam } from "vue-web-cam";
   }
 
 </script>
-<style>
+<style scoped>
   input {
     position: absolute;
     font-size: 50px;

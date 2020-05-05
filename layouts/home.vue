@@ -10,6 +10,9 @@ import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
+import VueDocPreview from 'vue-doc-preview'
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueSweetalert2);
 import Navbar from '@@/components/Navbar'
 export default {
   components: {

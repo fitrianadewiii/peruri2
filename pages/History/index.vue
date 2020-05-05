@@ -11,13 +11,13 @@
           <b-card no-body>
             <b-tabs card>
               <b-tab title="All" active>
-                <b-card-text>All</b-card-text>
+                 <all />
               </b-tab>
               <b-tab title="Completed">
-                <b-card-text>Completed</b-card-text>
+                <complete />
               </b-tab>
               <b-tab title="Pending">
-                <b-card-text>Pending</b-card-text>
+                <pending />
               </b-tab>
               <b-tab title="Sharing">
                 <history />
@@ -30,11 +30,17 @@
   </section>
 </template>
 <script>
-  import history from '@@/components/History/table'
+  import history from '@@/components/History/sharing'
+  import complete from '@@/components/History/Completed'
+  import pending from '@@/components/History/Pending'
+  import all from '@@/components/History/All'
   export default {
     layout: 'home',
       components: {
-          history
+          history,
+          complete,
+          pending,
+          all
         },
     data() {
       return {

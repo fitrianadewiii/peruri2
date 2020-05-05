@@ -25,6 +25,7 @@
               <template v-slot:button-content>
                 <i class="fa fa-user mr-2"></i>Husna
               </template>
+              <b-dropdown-item href="/Setting">Settings</b-dropdown-item>
               <b-dropdown-item href="/Profile">Profile</b-dropdown-item>
               <b-dropdown-item href="/">Sign Out</b-dropdown-item>
             </b-nav-item-dropdown>

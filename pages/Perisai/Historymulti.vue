@@ -13,7 +13,7 @@
               <div class="row  ">
                 <div class="col-md-8">
                   <div class="row" style="height:100vh">
-                    <div class="col-md-12" style="height:100vh">
+                    <div class="col-md-12" >
                       <hr>
                       <VueDocPreview value="newteach.pbworks.com%2Ff%2Fele%2Bnewsletter.docx" type="office"  />
                     </div>

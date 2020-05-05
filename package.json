@@ -27,6 +27,7 @@
     "nuxt": "^2.0.0",
     "sass-loader": "^8.0.2",
     "sweetalert2": "^9.10.12",
+    "vue-beautiful-chat": "^2.3.1",
     "vue-bootstrap-sidebar": "^1.0.6",
     "vue-doc-preview": "^0.3.2",
     "vue-good-wizard": "^1.4.1",
