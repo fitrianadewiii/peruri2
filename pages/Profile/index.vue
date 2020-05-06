@@ -8,58 +8,58 @@
               <div class="row">
                 <div class="col-md-6" style="border-right: 1px solid #80808057;">
                   <div v-if="revokedata">
-                  <div class="row ">
-                    <div class="col-md-6 text-right">
-                      <p><b>Serial Number</b></p>
+                    <div class="row ">
+                      <div class="col-md-6 text-right">
+                        <p><b>Serial Number</b></p>
+                      </div>
+                      <div class="col-md-6 text-left">
+                        <p>SDHJ12830902901</p>
+                      </div>
                     </div>
-                    <div class="col-md-6 text-left">
-                      <p>SDHJ12830902901</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 text-center table-responsive">
-                      <table class="table table-borderless">
-                        <thead>
-                          <tr>
-                            <th scope="col">Subject DN</th>
-                            <th scope="col">Issuer</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>C = ID</td>
-                            <td>C = ID</td>
-                          </tr>
-                          <tr>
-                            <td>S = Jawa Timur</td>
-                            <td>O = Peruri</td>
-                          </tr>
-                          <tr>
-                            <td>C = ID</td>
-                            <td>C = ID</td>
-                          </tr>
-                          <tr>
-                            <td>S = Jawa Timur</td>
-                            <td>O = Peruri</td>
-                          </tr>
-                          <tr>
-                            <td>C = ID</td>
-                            <td>C = ID</td>
-                          </tr>
-                          <tr>
-                            <td>S = Jawa Timur</td>
-                            <td>O = Peruri</td>
-                          </tr>
+                    <div class="row">
+                      <div class="col-md-12 text-center table-responsive">
+                        <table class="table table-borderless">
+                          <thead>
+                            <tr>
+                              <th scope="col">Subject DN</th>
+                              <th scope="col">Issuer</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>C = ID</td>
+                              <td>C = ID</td>
+                            </tr>
+                            <tr>
+                              <td>S = Jawa Timur</td>
+                              <td>O = Peruri</td>
+                            </tr>
+                            <tr>
+                              <td>C = ID</td>
+                              <td>C = ID</td>
+                            </tr>
+                            <tr>
+                              <td>S = Jawa Timur</td>
+                              <td>O = Peruri</td>
+                            </tr>
+                            <tr>
+                              <td>C = ID</td>
+                              <td>C = ID</td>
+                            </tr>
+                            <tr>
+                              <td>S = Jawa Timur</td>
+                              <td>O = Peruri</td>
+                            </tr>
 
-                        </tbody>
-                      </table>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
-                  </div>
-                  <div class="row ">
-                    <div class="col-md-12">
-                      <hr>
+                    <div class="row ">
+                      <div class="col-md-12">
+                        <hr>
+                      </div>
                     </div>
-                  </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -141,14 +141,14 @@
                         </div>
                       </div>
                     </div>
-                     
+
                     <div v-if="revokee">
                       <div class="row mt-2 text-center">
                         <div class="col-md-12">
-                         <button class="btn btn-success"> Revoke on Complete</button>
-                        <small>
-                          <p class="">*Mohon cek email ada untuk melihat Surat Pencabutan Surat Elektronik Anda</p>
-                        </small>
+                          <button class="btn btn-success"> Revoke on Complete</button>
+                          <small>
+                            <p class="">*Mohon cek email ada untuk melihat Surat Pencabutan Surat Elektronik Anda</p>
+                          </small>
                         </div>
                       </div>
                     </div>
@@ -229,7 +229,7 @@
                 <img src="/img/id-card.png" style="height:150px" alt="">
               </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-4">
               <div class="col-md-12 text-center">
                 <button type="button" class="btn btn-info">Upload KTP <input class="ipt" type="file"
                     name="file" /></button>
@@ -241,14 +241,20 @@
             <div class="row">
               <div class="col-md-12 text-center">
                 <p><b>Upload Foto Selfie</b></p>
-                <!-- <web-cam/> -->
-                <img src="/img/id-card.png" style="height:150px" alt="">
+                <div >
+                <vue-web-cam style="border:light-grey 1px" ref="webcam" :device-id="deviceId"
+                  width="100%" height="143px"  @error="onError"  @started="onStarted"
+                  @cameras="onCameras" @camera-change="onCameraChange" v-if="cameraopen" />
+                </div>
+                <figure v-if="cameraresult" class="figure" width="100%" height="143px" >
+                  <img :src="img" class="img-responsive"  style="width:50%"/>
+                </figure>
               </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-4">
               <div class="col-md-12 text-center">
-                <button type="button" class="btn btn-info">Open Camera <input class="ipt" type="file"
-                    name="file" /></button>
+                <button type="button" v-if="open" @click="onStart" class="btn btn-info">Open Camera </button>
+                <button type="button" v-if="capture" class="btn btn-info" @click="onCapture">Capture Photo</button>
               </div>
             </div>
 
@@ -384,8 +390,15 @@
   </section>
 </template>
 <script>
+  import {
+    WebCam
+  } from "vue-web-cam";
   export default {
     layout: 'home',
+    name: "App",
+    components: {
+      "vue-web-cam": WebCam
+    },
     data() {
       return {
         renew: true,
@@ -397,7 +410,34 @@
         revoke3: false,
         revoke4: false,
         revokee: false,
-        revokedata:true,
+        revokedata: true,
+        img: null,
+        camera: null,
+        deviceId: null,
+        devices: [],
+        cameraopen:true,
+        cameraresult:false,
+        open:false,
+        capture:true,
+
+      }
+    },
+    computed: {
+      device: function () {
+        return this.devices.find(n => n.deviceId === this.deviceId);
+      }
+    },
+    watch: {
+      camera: function (id) {
+        this.deviceId = id;
+      },
+      devices: function () {
+        // Once we have a list select the first one
+        const [first, ...tail] = this.devices;
+        if (first) {
+          this.camera = first.deviceId;
+          this.deviceId = first.deviceId;
+        }
       }
     },
     methods: {
@@ -439,8 +479,41 @@
         this.revokee = true;
         this.renew = false;
         this.valid = false;
-        this.revokedata=false;
+        this.revokedata = false;
       },
+      onCapture() {
+        this.img = this.$refs.webcam.capture();
+        this.cameraresult=true;
+        this.cameraopen=false;
+        this.capture=false;
+        this.open=true
+      },
+      onStarted(stream) {
+        console.log("On Started Event", stream);
+      },
+      onStopped(stream) {
+        console.log("On Stopped Event", stream);
+      },
+      onStop() {
+        this.$refs.webcam.stop();
+      },
+      onStart() {
+        this.$refs.webcam.start();
+       
+       
+      },
+      onError(error) {
+        console.log("On Error Event", error);
+      },
+      onCameras(cameras) {
+        this.devices = cameras;
+        console.log("On Cameras Event", cameras);
+      },
+      onCameraChange(deviceId) {
+        this.deviceId = deviceId;
+        this.camera = deviceId;
+        console.log("On Camera Change Event", deviceId);
+      }
     }
   }
 
