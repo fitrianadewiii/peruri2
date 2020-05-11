@@ -19,6 +19,11 @@
             <b-col cols="12" md="12">
               <div class="card">
                 <div class="card-body">
+                  <b-row>
+                    <b-col>
+                       <b-breadcrumb :items="items2"></b-breadcrumb>
+                    </b-col>
+                  </b-row>
                   <dokumen/>
                 </div>
               </div>
@@ -52,7 +57,17 @@
             href: '#'
           },
 
-        ]
+        ],
+         items2: [{
+            text: 'ISO',
+            href: '#'
+          },
+          {
+            text: 'Detail ISO',
+            href: '#'
+          },
+
+        ],
       }
     },
     methods: {

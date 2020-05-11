@@ -17,6 +17,13 @@
                   <p><b>Selected file: {{ file2 ? file2.name : '' }}</b></p>
                 </div>
               </div>
+              <div class="row  justify-content-center">
+                <div class="col-md-8 mb-3 text-right ">                
+                  <hr>
+                  <button @click="Detail()" type="button" class="btn btn-info "> Submit Document </button>
+                  <hr>
+                </div>
+              </div>
             </div>
             <div class="" v-if="empty">
               <div class="row" style="height:100%">
@@ -71,6 +78,11 @@
        browse() {
         this.empty=false;
         this.notempty=true;
+      },
+      Detail() {
+        this.$router.push({
+          path: `/DigitalLocker/DetailDigitalLocker`,
+        })
       },
     },
 
