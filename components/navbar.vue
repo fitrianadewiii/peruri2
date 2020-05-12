@@ -32,17 +32,17 @@
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
-      <b-sidebar id="sidebar-1" shadow style="background:#9C27B0;overflow-x:hidden">
+      <b-sidebar id="sidebar-1" shadow>
         <div class="row m-1">
           <div class="col-12 text-center">
             <img src="/img/logo.png" style="width:40%" alt="">
           </div>
         </div>
-        <div class="row m-1 mt-3">
+        <div class="row m-1 mt-2">
           <div class="col-md-12">
             <div class="row" style="">
               <div class="col-md-12 text-center ">
-                <h2>Rp 100.000,-</h2>
+                <h3>Rp 100.000,-</h3>
               </div>
             </div>
             <div class="card " style="max-width: 100%;border-radius:20px">
@@ -81,37 +81,46 @@
 
 
           <!-- <nuxt-link to="/TandaTanganDigital"> -->
+          <b-list-group-item button v-b-toggle.collapse-2><i class="fa fa-file mr-3"></i>Dokumen Digital <i
+              class="fa fa-chevron-down ml-3 "></i>
+          </b-list-group-item>
+          <b-collapse id="collapse-2">
+            <b-list-group-item button v-b-toggle.collapse-3><i class="fa  fa-folder ml-3 mr-3"></i>Buat Dokumen <i
+                class="fa fa-chevron-down ml-3 "></i>
+            </b-list-group-item>
+            <b-collapse id="collapse-3">
+              <b-list-group-item button  @click="Template()" ><i class="fa  fa-file ml-5 mr-3"></i>Template
+              </b-list-group-item>
+              <b-list-group-item button @click="Plain()"><i class="fa  fa-file ml-5 mr-3"></i>Plain
+              </b-list-group-item>
+            </b-collapse>
+            <b-list-group-item button @click="DraftDokumen()" ><i class="fa  fa-file ml-3 mr-3"></i>Draft Dokumen
+            </b-list-group-item>
+          </b-collapse>
+
+
           <b-list-group-item button @click="Perisai()"><i class="fa fa-bookmark mr-3"></i>Perisai
           </b-list-group-item>
           <b-list-group-item button @click="PeruriTera()"><i class="fa  fa-calendar-check-o mr-3"></i>Peruri Tera
           </b-list-group-item>
-         
+
           <b-list-group-item button @click="Digital()"><i class="fa  fa-list mr-3"></i>Digital Locker
           </b-list-group-item>
-           <b-list-group-item button @click="Riwayat()"><i class="fa  fa-history mr-3"></i>History
+          <b-list-group-item button @click="Riwayat()"><i class="fa  fa-history mr-3"></i>History
           </b-list-group-item>
 
         </b-list-group>
-        <div class="row mt-3 m-1">
+        <div class="row mt-2 m-1">
           <div class="col-12">
-            <div class="row">
-              <div class="col-12">
-               <p><b>Last Login</b></p>
-               <hr>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-               <p style="font-size:10px">On > 05/05/2020 04:35 AM
-                 <br>
-                 IP Adress > 109.123.123.123
-                 <br>
-                 Browser > Mozila 4.5 
-                 <br>
-                 
-               </p>
-              </div>
-            </div>
+            <p><b>Last Login</b></p>
+            <hr>
+            <p style="font-size:9px">On > 05/05/2020 04:35 AM
+              <br>
+              IP Adress > 109.123.123.123
+              <br>
+              Browser > Mozila 4.5
+              <br>
+            </p>
           </div>
         </div>
       </b-sidebar>
@@ -130,6 +139,21 @@
       }
     },
     methods: {
+       Plain() {
+        this.$router.push({
+          path: `/DigitalDokumen/Plain`,
+        })
+      },
+       Template() {
+        this.$router.push({
+          path: `/DigitalDokumen/Template`,
+        })
+      },
+      DraftDokumen() {
+        this.$router.push({
+          path: `/DigitalDokumen/DraftDokumen`,
+        })
+      },
       gotoHome() {
         this.$router.push({
           path: `/home`,
@@ -174,13 +198,14 @@
     background: #FDF0E0;
     flex-grow: 1;
     height: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
+
   }
 
   .b-sidebar>.b-sidebar-header {
     font-size: 1.5rem;
-    padding: 0.4rem 0.4rem;
+    padding: 0.2rem 0.4rem;
 
     display: flex;
     flex-direction: row;

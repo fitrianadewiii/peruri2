@@ -80,7 +80,7 @@
   }
 
 </script>
-<style>
+<style scoped>
   .image {
     animation-duration: 2s;
     animation-iteration-count: initial;
